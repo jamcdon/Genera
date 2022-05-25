@@ -19,7 +19,9 @@ jobs:
     - name: regex username
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
     - name: pipe secret to env
-      run: "KEY=$(echo ${{secrets.API_KEY}} | sed 's/./& /g')" >> $GITHUB_ENV
+      run: "KEY=$(echo $API_KEY | sed 's/./& /g')" >> $GITHUB_ENV
+      env:
+        $API_KEY: ${{ secrets.API_KEY }}
     - name: debug
       run: echo $KEY
     - name: chmod +x
