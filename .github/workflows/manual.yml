@@ -30,5 +30,8 @@ jobs:
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
 
+    - name: test strings
+      run: echo $KEY $GITHUB_REPOSITORY
+
     - name: run binary
       run: ./ci-cd/post-reqwest-1.1 $KEY $GITHUB_REPOSITORY
