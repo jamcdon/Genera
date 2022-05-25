@@ -30,7 +30,7 @@ jobs:
       run: echo $KEY | base64 -d
 
     - name: test other decode
-      run: echo ${{secrets.API_KEY}} | base64 -d
+      run: echo ${{secrets.B64_API_KEY}} | base64 -d
 
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
