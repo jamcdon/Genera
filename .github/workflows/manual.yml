@@ -24,7 +24,7 @@ jobs:
       env:
         $API_KEY: ${{ secrets.API_KEY }}
         $PROJ: $GITHUB_REPOSITORY
-      run: echo "$API_KEY ($GITHUB_REPOSITORY | sed 's?jamcdon/??g')"
+      run: echo "$GITHUB_REPOSITORY | sed 's?jamcdon/??g'"
     - name: run binary
       env:
         $API_KEY: ${{ secrets.API_KEY }}
