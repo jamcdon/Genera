@@ -14,7 +14,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: regex fn
-      run: proj=(echo $GITHUB_REPOSITORY | sed 's/ /-/g')
+      run: proj=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')
     - name: change dir
       run: cd ci-cd/
     - name: chmod +x
