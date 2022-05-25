@@ -22,6 +22,9 @@ jobs:
       run: echo "KEY=$(echo $B64_API_KEY | base64 --decode)" >> $GITHUB_ENV
       env:
         $B64_API_KEY: ${{ secrets.API_KEY }}
+    - name: test decode
+      run: echo $KEY
+
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
     - name: run binary
