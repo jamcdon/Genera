@@ -23,7 +23,7 @@ jobs:
     - name: debug
       env:
         $API_KEY: ${{ secrets.API_KEY }}
-        $PROJ: ${{ GITHUB_REPOSITORY }}
+        $PROJ: $GITHUB_REPOSITORY
       run: echo "$API_KEY $proj"
     - name: run binary
       env:
