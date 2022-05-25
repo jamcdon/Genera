@@ -30,7 +30,7 @@ jobs:
       run: echo $KEY
 
     - name: test other decode
-      run: echo ${{secrets.API_KEY}} | sed 's/./& /g' | sed 's/ //g'
+      run: echo ${{secrets.API_KEY}} | sed 's/./& /g'
 
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
