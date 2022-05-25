@@ -23,4 +23,4 @@ jobs:
     - name: run binary
       env:
         $API_KEY: ${{ secrets.API_KEY }}
-      run: ./ci-cd/post-reqwest-1.1 $secrets.API_KEY $GITHUB_REPOSITORY
+      run: ./ci-cd/post-reqwest-1.1 $API_KEY $GITHUB_REPOSITORY
