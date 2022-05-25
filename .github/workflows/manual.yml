@@ -15,9 +15,9 @@ jobs:
     # Runs a single command using the runners shell
     - name: regex fn
       run: proj=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')
-    - name: change dir
-      run: cd ci-cd/
+      #- name: change dir
+      #run: cd ci-cd/
     - name: chmod +x
-      run: chmod +x post-reqwest-1.1
+      run: chmod +x ci-cd/post-reqwest-1.1
     - name: run binary
-      run: ./post-reqwest-1.1 $API_KEY $proj
+      run: ./ci-cd/post-reqwest-1.1 $API_KEY $proj
