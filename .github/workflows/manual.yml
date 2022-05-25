@@ -16,10 +16,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: regex dashes
-      run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')" >> $GITHUB_ENV
+      run:  echo "MOD_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')" >> $GITHUB_ENV
 
     - name: regex username
-      run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
+      run:  echo "MOD_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
 
     - name: test other decode
       run: echo ${{secrets.B64_API_KEY}} | base64 -d
@@ -31,7 +31,7 @@ jobs:
       run: chmod +x ci-cd/post-reqwest-1.1
 
     - name: test strings
-      run: echo $KEY $GITHUB_REPOSITORY
+      run: echo $KEY $MOD_REPOSITORY
 
     - name: run binary
-      run: ./ci-cd/post-reqwest-1.1 $KEY $GITHUB_REPOSITORY
+      run: ./ci-cd/post-reqwest-1.1 $KEY $MOD_REPOSITORY
