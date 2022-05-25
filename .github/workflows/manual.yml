@@ -21,17 +21,8 @@ jobs:
     - name: regex username
       run:  echo "MOD_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
 
-    - name: test other decode
-      run: echo ${{secrets.B64_API_KEY}} | base64 -d
-
-    - name: test other decode => $key
-      run: echo "KEY=$(echo ${{secrets.B64_API_KEY}} | base64 -d)" >> $GITHUB_ENV
-
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
-
-    - name: test strings
-      run: echo $KEY $MOD_REPOSITORY
 
     - name: run binary
       run: ./ci-cd/post-reqwest-1.1 $KEY $MOD_REPOSITORY
