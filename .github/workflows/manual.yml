@@ -18,8 +18,8 @@ jobs:
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')" >> $GITHUB_ENV
     - name: regex username
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
-    - name: redirect secret to file
-      run: echo $API_KEY | sed -e 's/\(.\)/\1 /g'
+    - name: redirect secret with sed
+      run: echo "KEY=$(echo $API_KEY | sed -e 's/\(.\)/\1 /g')" >> $GITHUB_ENV
       env:
         $API_KEY: ${{ secrets.API_KEY }}
     - name: chmod +x
