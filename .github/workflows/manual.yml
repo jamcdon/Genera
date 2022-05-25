@@ -18,10 +18,10 @@ jobs:
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's/ /-/g')" >> $GITHUB_ENV
     - name: regex username
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
-    - name: redirect secret with sed
-      run: echo "KEY=$(echo $API_KEY | sed -e 's/\(.\)/\1 /g')" >> $GITHUB_ENV
+    - name: decode secret
+      run: echo "KEY=$(echo $B64_API_KEY | base64 --decode)" >> $GITHUB_ENV
       env:
-        $API_KEY: ${{ secrets.API_KEY }}
+        $B64_API_KEY: ${{ secrets.API_KEY }}
     - name: chmod +x
       run: chmod +x ci-cd/post-reqwest-1.1
     - name: run binary
