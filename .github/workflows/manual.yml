@@ -20,6 +20,7 @@ jobs:
       run:  echo "GITHUB_REPOSITORY=$(echo $GITHUB_REPOSITORY | sed 's?jamcdon/??g')" >> $GITHUB_ENV
     - name: redirect secret to file
       run: echo "$API_KEY" >> key
+      env:
         $API_KEY: ${{ secrets.API_KEY }}
     - name: redirect file to env var
       run: KEY=$(cat ./key)
